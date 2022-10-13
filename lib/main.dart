@@ -4,11 +4,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:project_ahmed_ahmed/ui/main_screen.dart';
 
-import 'model view/cubit/counter_cubit.dart';
+import 'model view/cubit main screen/main_screen_cubit.dart';
+
 
 void main() {
-  runApp(BlocProvider(
-    create: (context) => CounterCubit(),
+  runApp(MultiBlocProvider(
+    providers: [
+      BlocProvider<MainScreenCubit>(
+      create: (BuildContext context) => MainScreenCubit(),
+    ),
+    ],
     child: MyApp(),
   ));
 }
